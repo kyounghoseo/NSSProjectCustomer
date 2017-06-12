@@ -1,0 +1,261 @@
+@CHARSET "utf-8";
+
+/*outline 설정*/
+#main_header h5 { /*헤더*/
+	display: none;
+}
+
+#content_banner h5 { /*본문*/
+	display: none;
+}
+
+.footer h5 {
+	display: none;
+}
+
+/*메인 상단로고*/
+.main_logo {
+	display: inline-block;
+	width: 25%;
+	vertical-align: middle;
+}
+
+/*우측 상단메뉴 로그인_회원가입_고객센터_장바구니*/
+.top_right_nav {
+	float: right; /*우측 상단으로 흐르게*/
+}
+
+/*메인메뉴*/
+.menubar {
+	border: none;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.menubar ul {
+	background: rgb(109, 109, 109);
+	height: 50px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menubar li {
+	float: left;
+	padding: 0px;
+}
+
+.menubar li a {
+	background: rgb(109, 109, 109);
+	color: white;
+	display: block;
+	font-weight: normal;
+	line-height: 50px;
+	margin: 0px;
+	padding: 0px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a {
+	background: rgb(71, 71, 71);
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.menubar li ul {
+	background: rgb(109, 109, 109);
+	display: none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position: absolute;
+	width: 200px;
+	z-index: 200;
+	/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul {
+	display: block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+	background: rgb(109, 109, 109);
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 0px;
+	width: 200px;
+}
+
+.menubar li:hover li a {
+	background: none;
+	
+}
+
+.menubar li ul a {
+	display: block;
+	height: 50px;
+	font-size: 12px;
+	font-style: normal;
+	margin: 0px;
+	padding: 0px 10px 0px 15px;
+	text-align: left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a {
+	background: rgb(71, 71, 71);
+	border: 0px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.menubar p {
+	clear: left;
+}
+
+/*메인메뉴 끝*/
+
+/*상단 검색창*/
+.nav_search {
+	position: relative;
+	width: 224px;
+	float: right;
+	padding: -40px 10px;
+	margin: -16px;
+	width: 224px;
+}
+
+/*상단 검색 끝*/
+
+/*메인 상단배너 css */
+.content_banner1 {
+	background: url(../images/banner1_bg.jpg);
+}
+
+#top_banner {
+	width: 100%;
+	height: 331px;
+	position: relative;
+}
+/*메인 상단배너 css 끝 */
+
+/*신상품 리스트*/
+.prod-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.prod-list li {
+	position: relative;
+	float: left;
+	padding: 0;
+	margin: 10px;
+	overflow: hidden;
+}
+
+.prod-list img {
+	width: 290px;
+	margin: 0;
+	padding: 0;
+	float: left;
+	z-index: 5;
+}
+
+.prod-list .caption {
+	position: absolute;
+	top: 200px;
+	width: 280px;
+	height: 290px;
+	padding-top: 20px;
+	background: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	z-index: 10;
+}
+
+.prod-list li:hover .caption {
+	opacity: 1;
+	-moz-transform: translateY(-200px);
+	-ms-transform: translateY(-200px);
+	-o-transform: translateY(-200px);
+	-webkit-transform: translateY(-200px);
+	transform: translateY(-200px);
+}
+
+.prod-list .caption h1, .prod-list .caption p {
+	color: #fff;
+	text-align: center;
+}
+
+/*메인 하단배너 css */
+.content_banner2 {
+	position: relative;
+	border: 1px solid white;
+	width: 100%;
+	height: 290px;
+	background: url(banner2_bg.jpg);
+}
+
+.content_banner3 {
+	position: relative;
+	border: 1px solid white;
+	width: 100%;
+	height: 290px;
+	background: url(banner3_bg.jpg);
+}
+/*메인 하단배너 css */
+
+/*푸터 css*/
+.footer {
+	width: 1250px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	margin: 0 auto;
+}
+
+a { /* a링크 밑줄 제거 */
+	text-decoration: none
+}
+
+.footer_top {
+	text-decoration: none;
+	width: 100%;
+	height: 35px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border-bottom: 2px solid #000;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.address span {
+	padding: 0 25px 0 0;
+	padding-top: 0px;
+	padding-right: 25px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 22px;
+	padding-bottom: 0px;
+	padding-left: 0;
+}
+
+.copyright {
+	text-align: center;
+}
