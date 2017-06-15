@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="tag" uri="/WEB-INF/tld/custom_tag.tld"%>
+
 <c:if test="${csrfError !=null}">
 	<c:remove var="csrfError" />
 </c:if>
@@ -17,89 +17,8 @@
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*검색 후 검색 대상과 검색 단어 출력*/
-
-		if ("<c:out value='${data.keyword}' />" != "") {
-			$("#keyword").val("<c:out value='${data.keyword}' />");
-			$("#search").val("<c:out value='${data.search}' />");
-
-		}
-		/*한페이지에 보여줄 레코드 수 조회 후 선택한 값 그대로 유지하기 위한 설정*/
-		if ("<c:out value='${data.pageSize}' />" != "") {
-			$("#pageSize").val("<c:out value='${data.pageSize}' />");
-		}
-
-		/*검색 대상이 변경될 때마다 처리 이벤트*/
-		$("#search").change(function() {
-			if ($("#search").val() == "all") {
-				$("#keyword").val("글 목록 전체 조회");
-			} else if ($("#search").val() != "all") {
-				$("#keyword").val("");
-				$("#keyword").focus();
-			}
-		});
-
-		/*검색 버튼 클릭 시 처리 이벤트*/
-		$("#searchBtn").click(function() {
-			location.href = "/customer/product/searchResult.do";
-		});
-
-		/* 한페이지에 보여줄 레코드수를 변경될 때마다 처리 이벤트 */
-		$("#pageSize").change(function() {
-			goPage(1);
-		});
-
-		//엑셀 파일 다운로드 처리 이벤트
-		$("#excelDown").click(function() {
-			$("#f_search").attr({
-				"method" : "get",
-				"action" : "/board/boardExcel.do"
-			});
-			$("#f_search").submit();
-		});
-
-		/* 제목 클릭시 상세 페이지 이동을 위한 처리 이벤트 */
-		$(".goDetail").click(function() {
-			var b_num = $(this).parents("tr").attr("data-num");
-			$("#b_num").val(b_num);
-			console.log("글번호 : " + b_num);
-			// 상세 페이지로 이동하기 위해 form 추가 (id : detailForm)
-			$("#detailForm").attr({
-				"method" : "get",
-				"action" : "/board/boardDetail.do"
-			});
-			$("#detailForm").submit();
-		});
-
-		//글쓰기 버튼 클릭시 
-		$("#insertFormBtn").click(function() {
-			location.href = "/customer/product/insertForm.do";
-		});
-	});
-
-	//정렬 버튼 클릭시 처리 함수
-	function setOrder(order_by) {
-		$("#order_by").val(order_by);
-		if ($("#order_sc").val() == 'DESC') {
-			$("#order_sc").val('ASC');
-		} else {
-			$("#order_sc").val('DESC');
-		}
-		goPage(1);
-	}
-
-	/*검색과 한 페이지에 보여줄 레코드 수 처리 및 페이징을 위한 실질적인 처리 함수*/
-	function goPage(page) {
-		if ($("#search").val() == "all") {
-			$("#keyword").val("");
-		}
-		$("#page").val(page);
-		$("#f_search").attr({
-			"method" : "get",
-			"action" : "/board/boardList.do"
-		});
-		$("#f_search").submit();
-	}
+		
+		
 </script>
 
 </head>
