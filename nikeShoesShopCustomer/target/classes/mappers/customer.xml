@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nss.customer.customerdao.CustomerDao">
+
+	<!-- 로그인(조회) -->
+	<select id="logInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
+		SELECT
+		customerID,
+		customerName
+		from customer_tb
+		WHERE
+		customerID
+		=#{LoginCustomerID} and customerPW =#{LoginCustomerPW}
+	</select>
+
+	<!-- ID찾기(조회) -->
+	<select id="idInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
+		SELECT
+		customerID
+		from customer_tb
+		WHERE customerName
+		=#{IDCustomerName} and customerEMail =#{IDCustomerEMail}
+	</select>
+
+	<!-- 비밀번호 찾기(조회) -->
+	<select id="pwInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
+		SELECT
+		customerPW
+		from customer_tb
+		WHERE customerName
+		=#{IDCustomerName} and
+		customerID=#{LoginCustomerID} and customerEMail
+		=#{IDCustomerEMail}
+	</select>
+
+	<!-- 비밀번호 재설정(수정) -->
+	<update id="pwUpdate" parameterType="com.nss.customer.customervo.CustomerVO">
+		UPDATE customer_tb
+		SET
+		customerPW =#{LoginCustomerPW}
+		
+		WHERE
+		customerName =#{IDCustomerName} and
+		customerID =#{LoginCustomerID} and
+		customerEMail =#{IDCustomerEMail}
+		
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <select id="getAll" resultMap="YourResultSet"> SELECT * FROM tablename1 
+		</select> -->
+
+	<!-- 회원가입 등록 -->
+	<insert id="csInsert" parameterType="com.nss.customer.customervo.CustomerVO">
+		<selectKey keyProperty="customerNO" resultType="int" order="BEFORE">
+			select customer_no_seq.nextval from dual
+		</selectKey>
+		INSERT INTO customer_tb (customerNO, customerID,
+		customerPW,customerName,customerCellPhone,customerEMail,customerBirth,customerGender,customerAccept)
+		VALUES(#{customerNO},#{customerID},#{customerPW},#{customerName},#{customerCellPhone},#{customerEMail},#{customerBirth},#{customerGender},#{customerAccept})
+	</insert>
+
+
+	<!-- private int customerNO; //회원 번호 private String customerID; //회원 아이디 
+		private String customerPW; //회원 비밀번호 private String customerName; //회원 이름 
+		private String customerCellPhone; //회원 휴대폰번호 private String customerEMail; 
+		//회원 이메일 private String customerBirth; //회원 생년월일 private String customerGender; 
+		//회원 성별 private String customerAccept; //회원 동의 private String customerDate; 
+		//회원 가입날짜 private String customerCheck; //회원여부 -->
+
+	<!-- 회원가입수정 -->
+	<update id="csUpdate" parameterType="com.nss.customer.customervo.CustomerVO">
+		UPDATE customer_tb
+		SET
+		customerName=#{customerName},
+		customerPW=#{customerPW},
+		customerCellPhone=#{customerCellPhone},
+		customerEMail=#{customerEMail},
+		customerBirth=#{customerBirth}
+
+		WHERE
+		customerNO = #{customerNO}
+	</update>
+
+	<!-- <delete id="deleteSomething" parameterType="int"> DELETE FROM tablename1 
+		WHERE columnname1 = #{param1} </delete> -->
+</mapper>
