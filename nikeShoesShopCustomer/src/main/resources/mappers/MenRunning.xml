@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-
+mapper.dtd">
+<mapper namespace="com.nss.customer.menrunningdao.MenRunningMapper">
+	<select id="runningList" parameterType="com.nss.customer.menrunningvo.MenRunningVO"
+		resultType="com.nss.customer.menrunningvo.MenRunningVO">
+		SELECT productNo, productName, productCategory,
+		productPrice
+		from product_tb
+		where productCategory = '런닝화M'
+		<if test="priceSort =='heighPrice'">
+			ORDER BY TO_NUMBER(productPrice) ASC
+		</if>
+		<if test="priceSort == 'rowPrice'">
+		 ORDER BY TO_NUMBER(productPrice) DESC
+		</if>
+	</select>
+</mapper>
