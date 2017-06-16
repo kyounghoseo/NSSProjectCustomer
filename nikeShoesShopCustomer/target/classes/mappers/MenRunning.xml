@@ -8,11 +8,13 @@ mapper.dtd">
 		productPrice
 		from product_tb
 		where productCategory = '런닝화M'
-		<if test="priceSort =='heighPrice'">
-			ORDER BY TO_NUMBER(productPrice) ASC
-		</if>
-		<if test="priceSort == 'rowPrice'">
-		 ORDER BY TO_NUMBER(productPrice) DESC
-		</if>
+		<choose>
+			<when test="order_sc=='ASC'">
+			ORDER BY TO_NUMBER(productPrice)ASC
+			</when>
+			<when test="order_sc=='DESC'">
+			ORDER BY TO_NUMBER(productPrice)DESC
+			</when>
+		</choose>	
 	</select>
 </mapper>
