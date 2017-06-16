@@ -1,7 +1,6 @@
-package com.nss.customer.menrunningvo;
+package com.nss.customer.menallvo;
 
-public class MenRunningVO {
-	//상품필드
+public class MenAllVO {
 	private int productNo; // 상품번호
 	private String productName; // 상품이름
 	private String productCategory; // 상품분류
@@ -9,29 +8,6 @@ public class MenRunningVO {
 	private String productPrice;// 상품가겨
 	private String productColor;// 상품색상
 	private String productInfo;// 상품정보
-
-	// 정렬필드
-	private String priceSort; // 가격 정렬
-	private String order_sc;
-	
-	
-	
-
-	public String getPriceSort() {
-		return priceSort;
-	}
-
-	public void setPriceSort(String priceSort) {
-		this.priceSort = priceSort;
-	}
-
-	public String getOrder_sc() {
-		return order_sc;
-	}
-
-	public void setOrder_sc(String order_sc) {
-		this.order_sc = order_sc;
-	}
 
 	public int getProductNo() {
 		return productNo;
@@ -88,6 +64,5 @@ public class MenRunningVO {
 	public void setProductInfo(String productInfo) {
 		this.productInfo = productInfo;
 	}
-
 
 }

@@ -19,6 +19,4 @@ public class MenRunningDaoImpl implements MenRunningDao{
 	public List<MenRunningVO> runningList(MenRunningVO mrvo) {
 			return sqlSession.selectList("runningList", mrvo);
 	}
-	
-
 }
