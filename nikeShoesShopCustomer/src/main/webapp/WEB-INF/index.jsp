@@ -1,11 +1,30 @@
+<%@page import="org.springframework.web.context.request.SessionScope"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>NSS 나이키 슈즈 샵</title>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	/* [로그인] 버튼 눌렀을때 처리 이벤트 */
+	$(document).ready(function() {
 
+		$("#loginInsert").click(function() {
+
+			$("#loginForm").attr({
+				"method" : "POST",
+				"action" : "/login/loginForm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
+			});
+
+			$("#loginForm").submit();
+		});
+		
+	});
+</script>
 
 <style type="text/css">
 /*메인 상단로고*/
@@ -28,7 +47,6 @@
 	padding: 0px;
 	font-size: 11px;
 	font-weight: bold;
-	
 }
 
 .menubar ul {
@@ -128,7 +146,7 @@
 
 /*상단 검색 끝*/
 * /
-	/*메인배너 css */         
+	/*메인배너 css */           
 .main_banner {
 	width: 100%;
 	height: 20%;
@@ -179,20 +197,33 @@ a {
 </style>
 </head>
 <body>
+
 	<div id="wrap">
 		<header class="main_header" id="main_header">
 		<div class="main_logo">
 			<h1>
-				<a href="#"><img src="logo.jpg" alt="NSS"></a>
+				<a href="#"><img src="../resources/images/logo.jpg" alt="NSS"></a>
 			</h1>
 			<!-- <h2 class="main_title">나이키 슈즈 샵</h2> -->
 		</div>
 
 		<div class="top_right_nav">
 
-			<a class="account_register" href="#">로그인/회원가입</a> <a
-				class="customercenter" href="#">고객센터</a> <a class="cart" href="#"><img
-				src="cart.jpg" width="25px" ; height="20px" ; alt="장바구니"></a>
+			<a class="account_register" href="/login/login.do"> <c:choose>
+					<c:when test="${not empty session.loginSession}">
+			${sessionScope.loginSession.customerName}님
+								안녕하세요</c:when>
+
+					<c:otherwise>로그인/회원가입</c:otherwise>
+				</c:choose>
+			</a>
+			
+			<%-- <%=session.getAttribute("loginSession") %> --%>
+			
+			<a id="logout" href="/login/login.do">로그아웃</a>
+		
+			<a class="customercenter" href="#">고객센터</a> <a class="cart" href="#"><img
+				src="cart.jpg" width="25px" height="20px" alt="장바구니"></a>
 		</div>
 
 		<div class="nav_search">
@@ -231,6 +262,87 @@ a {
 		<!-- 상단메뉴 끝 --> </header>
 	</div>
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
+	<%-- <% String id=""; 
+	try{
+		//id 세션 속성의 값을 얻어내서 id 변수에 저장
+		//인증된 사용자의 경우 id 세션 속성의 값 null 또는 공백이 아님
+		id = (String)session.getAttribute("customerID");
+	%>
+
+	<%if(id == null ||id.equals("")){//인증되지 않은 사용자 영역 %>
+	<div id="status">
+		<h2>로그인</h2>
+		<form id="loginForm">
+			<table>
+				<tbody>
+					<tr>
+						<td><input type="text" id="LoginCustomerID"
+							name="LoginCustomerID" placeholder="아이디"></td>
+					</tr>
+
+					<tr>
+						<td><input type="password" id="LoginCustomerPW"
+							name="LoginCustomerPW" placeholder="비밀번호"></td>
+					</tr>
+
+					<tr>
+						<td><input type="button" value="로그인" name="loginInsert"
+							id="loginInsert"></td>
+					</tr>
+
+					<tr>
+						<td><a href="#">아이디 찾기</a></td>
+						<td><a href="#">비밀번호 찾기</a></td>
+						<td><a href="#">관리자페이지</a></td>
+					</tr>
+
+					<tr>
+						<td><a href="/customer/registerForm.do"><input
+								type="button" value="회원가입">회원가입</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<%}else{//인증된 사용자 영역 %>
+	<div id="status">
+		<h2>로그인</h2>
+		<form id="loginForm">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+						<b></b>님 반갑습니다.
+						</td>
+					</tr>
+
+					<tr>
+						<td><input type="button" value="로그아웃" name="loginOut"
+							id="loginOut"></td>
+					</tr>
+
+					<tr>
+						<td><a href="#">아이디 찾기</a></td>
+						<td><a href="#">비밀번호 찾기</a></td>
+						<td><a href="#">회원정보변경</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<%}}catch(Exception e){e.printStackTrace();}%> --%>
+
+
+
+
+
+
+
+
+
+
+
+
 	<br>
 	<br>
 	<br>
