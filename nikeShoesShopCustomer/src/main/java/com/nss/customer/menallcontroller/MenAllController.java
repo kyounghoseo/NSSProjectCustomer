@@ -24,12 +24,19 @@ public class MenAllController {
 	//남성 전체 리스트
 	@RequestMapping(value="allList", method = RequestMethod.GET)
 	public String allList(@ModelAttribute MenAllVO mavo, Model model){
-		logger.info("농후과 호출 성공");
+		logger.info("농구화 호출 성공");
 		
 		List<MenAllVO> allList = allService.allList(mavo);
 		model.addAttribute("allList", allList);
 		logger.info(allList);
 		return "product/men/allList";
+	}
+	
+	//상세페이지 보기
+	@RequestMapping(value="allDetail", method=RequestMethod.GET)
+	public String allDetail(@ModelAttribute MenAllVO mavo, Model model){
+		logger.info("남자 전체페이지 상세보기 호출 성공");
+		
 	}
 
 }
