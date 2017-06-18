@@ -36,6 +36,17 @@ public class MenAllController {
 	@RequestMapping(value="allDetail", method=RequestMethod.GET)
 	public String allDetail(@ModelAttribute MenAllVO mavo, Model model){
 		logger.info("남자 전체페이지 상세보기 호출 성공");
+		logger.info(mavo.getProductNo()+"번 상품의 상세페이지");
+		
+		MenAllVO detail = new MenAllVO();
+		detail = allService.allDetail(mavo);
+		
+		if(detail != null && (!detail.equals(""))){
+			detail.setProductName(detail.getProductName().toString().replaceAll("\n", "<br>"));
+		}
+		model.addAttribute("detail",detail);
+		
+		return "product/men/allDetail";
 		
 	}
 

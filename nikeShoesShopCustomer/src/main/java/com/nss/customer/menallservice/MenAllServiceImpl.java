@@ -19,6 +19,8 @@ public class MenAllServiceImpl implements MenAllService {
 
 	@Autowired
 	private MenAllDao menallDao;
+	
+	//남자 상품 전체 리스트
 	@Override
 	public List<MenAllVO> allList(MenAllVO mavo) {
 		List<MenAllVO> allList = null;
@@ -26,4 +28,15 @@ public class MenAllServiceImpl implements MenAllService {
 		return allList;
 	}
 
+	//전체상품 디테일 보기
+	@Override
+	public MenAllVO allDetail(MenAllVO mavo) {
+	MenAllVO detail = null;
+	detail = menallDao.allDetail(mavo);
+		return detail;
+	}
+
+
+	
+	
 }
