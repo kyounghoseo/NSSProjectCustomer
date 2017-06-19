@@ -249,9 +249,9 @@ a {
 						</ul></li>
 				</h1>
 				<h1>
-					<li><a href="#" id="current">WOMEN</a>
+					<li><a href="http://localhost:8080/customer/product/women/wmallList.do" id="current">WOMEN</a>
 						<ul>
-							<li><a href="#">런닝</a></li>
+							<li><a href="http://localhost:8080/customer/product/women/wmrunningList.do">런닝</a></li>
 							<li><a href="#">라이프 스타일</a></li>
 						</ul></li>
 				</h1>

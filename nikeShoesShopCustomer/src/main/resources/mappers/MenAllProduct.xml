@@ -11,6 +11,7 @@
 					productCategory,
 					productPrice
 		  FROM product_tb
+		  where productCategory IN('런닝화M','라이프 스타일M','농구화M','축구화M')
 		<if test="priceSort == 'heighPrice'">
 	    ORDER BY to_number(productPrice) DESC
 		</if>
