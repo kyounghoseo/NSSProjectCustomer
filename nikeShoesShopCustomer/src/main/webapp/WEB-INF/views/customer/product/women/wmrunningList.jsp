@@ -54,7 +54,7 @@
 		<section>
 			<article>
 				<a href="http://localhost:8080/customer/product/women/allList.do" class="active">전체</a> 
-				<a href="http://localhost:8080/customer/product/women/runningList.do">런닝화</a> 
+				<a href="http://localhost:8080/customer/product/women/wmrunningList.do">런닝화</a> 
 				<a href="http://localhost:8080/customer/product/women/lifestyleList.do">라이프스타일</a> 
 	
 			</article>
@@ -65,11 +65,11 @@
 		<article class="men_list">
 		<table>
 			<c:choose>
-				<c:when test="${not empty runningList}">
-					<c:forEach var="running" items="${runningList }" varStatus="status">
+				<c:when test="${not empty wmrunningList}">
+					<c:forEach var="wmrunning" items="${wmrunningList }" varStatus="status">
 						<tr>
-							<td>${running.productName}</td>
-							<td>${running.productPrice}</td>
+							<td>${wmrunning.productName}</td>
+							<td>${wmrunning.productPrice}</td>
 						</tr>
 					</c:forEach>
 				</c:when>

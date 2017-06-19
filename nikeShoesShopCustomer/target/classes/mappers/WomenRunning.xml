@@ -4,7 +4,7 @@
   <mapper namespace="com.nss.customer.womenrunningdao.WomenRunningDao">
   
    <!-- 전체상품 리스트 -->
-  	<select id="runningList" parameterType="com.nss.customer.womenrunningvo.WomenRunningVO"
+  	<select id="wmrunningList" parameterType="com.nss.customer.womenrunningvo.WomenRunningVO"
   	resultType="com.nss.customer.womenrunningvo.WomenRunningVO">
   	SELECT productNo, productName, productCategory,
 		productPrice

@@ -21,9 +21,9 @@ public class WomenRunningServiceImpl implements WomenRunningService{
 
 	//여성 런닝화 리스트
 	@Override
-	public List<WomenRunningVO> runningList(WomenRunningVO wrvo) {
+	public List<WomenRunningVO> wmrunningList(WomenRunningVO wrvo) {
 	 List<WomenRunningVO> runningList = null;
-	 runningList = womenrunningDao.runningList(wrvo);
+	 runningList = womenrunningDao.wmrunningList(wrvo);
 		return runningList;
 	}
 

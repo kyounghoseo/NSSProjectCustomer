@@ -5,6 +5,6 @@ import java.util.List;
 import com.nss.customer.womenrunningvo.WomenRunningVO;
 
 public interface WomenRunningService {
-	public List<WomenRunningVO> runningList(WomenRunningVO wrvo);
+	public List<WomenRunningVO> wmrunningList(WomenRunningVO wrvo);
 
 }

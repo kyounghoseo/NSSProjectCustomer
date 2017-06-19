@@ -15,9 +15,9 @@ public class WomenRunningDaoImpl implements WomenRunningDao{
 	@Inject
 	private SqlSession sqlSession;
 	@Override
-	public List<WomenRunningVO> runningList(WomenRunningVO wrvo) {
+	public List<WomenRunningVO> wmrunningList(WomenRunningVO wrvo) {
 		
-		return sqlSession.selectList("runningList",wrvo);
+		return sqlSession.selectList("wmrunningList",wrvo);
 	}
 
 }

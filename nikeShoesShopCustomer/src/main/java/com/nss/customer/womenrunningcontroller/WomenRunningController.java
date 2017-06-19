@@ -23,14 +23,14 @@ public class WomenRunningController {
 	
 	//여성 런닝화 리스트
 	
-	@RequestMapping(value="/runningList", method = RequestMethod.GET)
-	public String runningList(@ModelAttribute WomenRunningVO wrvo, Model model){
+	@RequestMapping(value="/wmrunningList", method = RequestMethod.GET)
+	public String wmrunningList(@ModelAttribute WomenRunningVO wrvo, Model model){
 		logger.info("여성 런닝화 호출 성공");
-		List<WomenRunningVO> runningList = womenrunningService.runningList(wrvo);
-		model.addAttribute("runningList",runningList);
-		logger.info(runningList);
+		List<WomenRunningVO> wmrunningList = womenrunningService.wmrunningList(wrvo);
+		model.addAttribute("wmrunningList",wmrunningList);
+		logger.info(wmrunningList);
 		
-		return "/customer/product/women/runningList";
+		return "/customer/product/women/wmrunningList";
 	}
 
 }
