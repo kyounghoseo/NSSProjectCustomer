@@ -38,20 +38,14 @@
 		=#{IDCustomerEMail}
 	</select>
 
-	<!-- 비밀번호 재설정(수정) -->
-	<update id="pwUpdate" parameterType="com.nss.customer.customervo.CustomerVO">
+<!-- 비밀번호 재설정(수정) - pwConfirm -->
+	<update id="pwUpdate" parameterType="com.nss.customer.customervo.CustomerVO" >
 		UPDATE customer_tb
 		SET
-		customerPW =#{LoginCustomerPW}
-		
+		customerPW =#{PWCustomerPW}
 		WHERE
-		customerName =#{IDCustomerName} and
-		customerID =#{LoginCustomerID} and
-		customerEMail =#{IDCustomerEMail}
-		
+		customerID =#{LoginCustomerID}
 	</update>
-
-
 
 
 
