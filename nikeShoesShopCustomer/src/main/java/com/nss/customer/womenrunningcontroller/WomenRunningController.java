@@ -1,5 +1,7 @@
 package com.nss.customer.womenrunningcontroller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.nss.customer.womenrunningservice.WomenRunningService;
 import com.nss.customer.womenrunningvo.WomenRunningVO;
 
 @Service
@@ -20,10 +23,14 @@ public class WomenRunningController {
 	
 	//여성 런닝화 리스트
 	
-	@RequestMapping(value="/womenrunningList", method = RequestMethod.GET)
-	public String womenrunningList(@ModelAttribute WomenRunningVO wrvo, Model model){
+	@RequestMapping(value="/runningList", method = RequestMethod.GET)
+	public String runningList(@ModelAttribute WomenRunningVO wrvo, Model model){
 		logger.info("여성 런닝화 호출 성공");
+		List<WomenRunningVO> runningList = womenrunningService.runningList(wrvo);
+		model.addAttribute("runningList",runningList);
+		logger.info(runningList);
 		
+		return "/customer/product/women/runningList";
 	}
 
 }
