@@ -68,8 +68,8 @@
 				<c:when test="${not empty lifestyleList}">
 					<c:forEach var="lifestyle" items="${lifestyleList }" varStatus="status">
 						<tr>
-							<td>${running.productName}</td>
-							<td>${running.productPrice}</td>
+							<td>${lifestyle.productName}</td>
+							<td>${lifestyle.productPrice}</td>
 						</tr>
 					</c:forEach>
 				</c:when>
