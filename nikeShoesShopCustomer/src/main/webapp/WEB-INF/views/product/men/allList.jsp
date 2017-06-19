@@ -15,12 +15,12 @@
 			$(this).val("heighPrice").prop("selected", false);
 			alert("높은가격선택");
 		});
-		
+
 		//상세페이지 이동
-		function goDetail(productNo){
-			location.href = "/product/men/allDetail.do?productNo=" +productNo;
+		function goDetail(productNo) {
+			location.href = "/product/men/allDetail.do?productNo=" + productNo;
 		}
-		
+
 	});
 </script>
 <style type="text/css">
