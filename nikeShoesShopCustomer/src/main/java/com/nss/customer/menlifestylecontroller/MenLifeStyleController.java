@@ -14,7 +14,7 @@ import com.nss.customer.menlifestyleservice.MenLifeStyleService;
 import com.nss.customer.menlifestylevo.MenLifeStyleVO;
 
 @Controller
-@RequestMapping(value="product/men")
+@RequestMapping(value="/product/men")
 public class MenLifeStyleController {
 	Logger logger = Logger.getLogger(MenLifeStyleController.class);
 	
@@ -22,7 +22,7 @@ public class MenLifeStyleController {
 	private MenLifeStyleService lifestyleService;
 	
 	//남성 라이프 스타일 리스트
-	@RequestMapping(value="lifestyleList", method = RequestMethod.GET)
+	@RequestMapping(value="/lifestyleList", method = RequestMethod.GET)
 	public String lifestyleList(@ModelAttribute MenLifeStyleVO mlsvo,Model model){
 		logger.info("남성 라이프 스타일 리스트 호출 성공");
 		

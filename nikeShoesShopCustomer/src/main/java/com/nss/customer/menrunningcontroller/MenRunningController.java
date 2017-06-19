@@ -23,7 +23,7 @@ public class MenRunningController {
 	private MenRunningService runningService;
 	
 	//남성 런닝화 리스트
-	@RequestMapping(value="runningList", method = RequestMethod.GET)
+	@RequestMapping(value="/runningList", method = RequestMethod.GET)
 	public String runningList(@ModelAttribute MenRunningVO mrvo, Model model){
 		logger.info("남성 런닝화 리스트 호출 성공");
 		
