@@ -4,7 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ID찾기 처리화면</title>
+<title>ID찾기</title>
+<!-- ID찾기 내용 입력하는 창 -->
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	/* [확인] 버튼 눌렀을때 처리 이벤트 */
+	$(document).ready(function() {
+	
+	$("#IDInsert").click(function() {//ID찾기에서 확인 버튼을 눌렀을 때
+
+		$("#idSearchForm").attr({
+			"method" : "POST",
+			"action" : "/customer/login/idConfirm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
+		});
+
+	$("#idSearchForm").submit();
+		});
+	});
+</script>
 
 <style type="text/css">
 /*메인 상단로고*/
@@ -175,10 +193,7 @@ a {
 	text-align: center;
 }
 </style>
-
-
 </head>
-<body>
 <body>
 
 	<div id="wrap">
@@ -234,22 +249,27 @@ a {
 		</header>
 	</div>
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
-	<form id="idConfirmForm">
-		<p>아이디 찾기</p>
+	<form id="idSearchForm">
+		<p>아이디찾기</p>
 		<table>
 			<tbody>
 				<tr>
-					<td>귀하의 아이디는 ${customerID}입니다.</td>
+					<td>회원 정보에 등록한 이름, E-mail과 <br>입력한 이름, E-mail이 같아야 확인할 수 있습니다.</td>
+				</tr>
+				<tr>
+					<td><input type="text" id="IDCustomerName"
+						name="IDCustomerName" placeholder="이름을 입력해 주세요" required="required"></td>
 				</tr>
 
 				<tr>
-					<td><a href="/login/login.do"><input type="button" value="로그인"></a></td>
+					<td><input type="Email" id="IDCustomerEMail"
+						name="IDCustomerEMail" placeholder="이메일을 입력해 주세요" required="required"></td>
 				</tr>
 
 				<tr>
-					<td><a href="/login/pwSearch.do"><input type="button" value="비밀번호찾기"></a></td>
+					<td><input type="button" value="확인" name="IDInsert"
+						id="IDInsert"></td>
 				</tr>
-				
 			</tbody>
 		</table>
 	</form>
@@ -262,7 +282,7 @@ a {
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입  끝-->
 	<div class="footer">
 		<div class="footer_top">
-			<span> <a href="#">홈</a></span> <span> <a href="#">회사소개</a></span> <span>
+			<span> <a href="/customer/index.jsp">홈</a></span> <span> <a href="#">회사소개</a></span> <span>
 				<a href="#">이용약관</a>
 			</span> <span> <a href="#">개인정보약관</a></span>
 		</div>
@@ -280,42 +300,6 @@ a {
 		</p>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-	<!-- 	<h1>로그인</h1>
-	<table>
-		<tr>
-			<td><input type="text" placeholder="아이디"></td>
-		</tr>
-
-		<tr>
-			<td><input type="text" placeholder="비밀번호"></td>
-		</tr>
-
-		<tr>
-			<td><input type="submit" value="로그인"></td>
-		</tr>
-
-		<tr>
-			<td><a>아이디 찾기</a></td>
-			<td><a>비밀번호 찾기</a></td>
-			<td><a>관리자페이지</a></td>
-		</tr>
-
-		<tr>
-			<a><input type="button" value="회원가입">회원가입</a>
-		</tr>
-
-	</table> -->
 
 </body>
 </html>

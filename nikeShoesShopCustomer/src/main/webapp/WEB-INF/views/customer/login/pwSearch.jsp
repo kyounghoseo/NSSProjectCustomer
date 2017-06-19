@@ -4,41 +4,195 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 재설정 창</title>
+<title>비밀번호 찾기</title>
 <!-- 비밀번호 찾는 정보 입력하는 창 -->
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-	/* [변경완료] 버튼 눌렀을때 처리 이벤트 */
+	/* [비밀번호 재설정] 버튼 눌렀을때 처리 이벤트 */
 	$(document).ready(function() {
 
-		$("#PWUpdate").click(function() {//비밀번호 찾기에서 변경완료 버튼을 눌렀을 때
+		$("#PWInsert").click(function() {//비밀번호 찾기에서 비밀번호찾기 버튼을 눌렀을 때
 
-			$("#pwConfirmForm").attr({
+			$("#pwSearchForm").attr({
 				"method" : "POST",
-				"action" : "/login/pwConfirm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
+				"action" : "/customer/login/pwConfirm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
 			});
 
-			$("#pwConfirmForm").submit();
-		});
-	});
-
-	/* [취소] 버튼 눌렀을때 처리 이벤트 */
-	$(document).ready(function() {
-
-		$("#PWReset").click(function() {//비밀번호 찾기에서 취소 버튼을 눌렀을 때
-
-			$("#pwConfirmForm").attr({
-				"method" : "POST",
-				"action" : "/login/pwSearch.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
-			});
-
-			$("#pwConfirmForm").submit();
+			$("#pwSearchForm").submit();
 		});
 	});
 </script>
-</script>
 
+<style type="text/css">
+/*메인 상단로고*/
+.main_logo {
+	display: inline-block;
+	width: 25%;
+	vertical-align: middle;
+}
+
+/*우측 상단메뉴 로그인_회원가입_고객센터_장바구니*/
+.top_right_nav {
+	float: right; /*우측 상단으로 흐르게*/
+}
+
+/*메인메뉴*/
+.menubar {
+	border: none;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.menubar ul {
+	background: rgb(109, 109, 109);
+	height: 50px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menubar li {
+	float: left;
+	padding: 0px;
+}
+
+.menubar li a {
+	background: rgb(109, 109, 109);
+	color: white;
+	display: block;
+	font-weight: normal;
+	line-height: 50px;
+	margin: 0px;
+	padding: 0px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a {
+	background: rgb(71, 71, 71);
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.menubar li ul {
+	background: rgb(109, 109, 109);
+	display: none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position: absolute;
+	width: 200px;
+	z-index: 200;
+	/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul {
+	display: block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+	background: rgb(109, 109, 109);
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 0px;
+	width: 200px;
+}
+
+.menubar li:hover li a {
+	background: none;
+}
+
+.menubar li ul a {
+	display: block;
+	height: 50px;
+	font-size: 12px;
+	font-style: normal;
+	margin: 0px;
+	padding: 0px 10px 0px 15px;
+	text-align: left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a {
+	background: rgb(71, 71, 71);
+	border: 0px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.menubar p {
+	clear: left;
+}
+
+/*메인메뉴 끝*/
+
+/*상단 검색창*/
+.nav_search {
+	position: relative;
+	width: 224px;
+	float: right;
+	padding: -40px 10px;
+	margin: -16px;
+	width: 224px;
+}
+
+/*상단 검색 끝*/
+* /
+	/*메인배너 css */            
+.main_banner {
+	width: 100%;
+	height: 20%;
+	position: absolute;
+	visibility: hidden;
+}
+/*푸터 css*/
+.footer {
+	width: 1250px;
+	margin: 0 auto;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+a {
+	text-decoration: none
+} /* a링크 밑줄 제거 */
+.footer_top {
+	text-decoration: none;
+	width: 100%;
+	height: 35px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border-bottom: 2px solid #000;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.address span {
+	padding: 0 25px 0 0;
+	padding-top: 0px;
+	padding-right: 25px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 22px;
+	padding-bottom: 0px;
+	padding-left: 0;
+}
+
+.copyright {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 
@@ -54,7 +208,7 @@
 
 			<div class="top_right_nav">
 
-				<a class="account_register" href="#">로그인/회원가입</a> <a
+				<a class="account_register" href="/customer/login/login.do">로그인/회원가입</a> <a
 					class="customercenter" href="#">고객센터</a> <a class="cart" href="#"><img
 					src="cart.jpg" width="25px" ; height="20px" ; alt="장바구니"></a>
 			</div>
@@ -96,7 +250,7 @@
 		</header>
 	</div>
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
-	<form id="pwConfirmForm">
+	<form id="pwSearchForm">
 		<p>비밀번호 찾기</p>
 		<table>
 			<tbody>
@@ -122,10 +276,8 @@
 				</tr>
 
 				<tr>
-					<td><input type="button" value="변경완료" name="PWUpdate"
-						id="PWUpdate"></td>
-					<td><input type="button" value="취소" name="PWReset"
-						id="PWReset"></td>
+					<td><input type="button" value="비밀번호 재설정" name="PWInsert"
+						id="PWInsert"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -139,7 +291,7 @@
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입  끝-->
 	<div class="footer">
 		<div class="footer_top">
-			<span> <a href="#">홈</a></span> <span> <a href="#">회사소개</a></span> <span>
+			<span> <a href="/customer/index.jsp">홈</a></span> <span> <a href="#">회사소개</a></span> <span>
 				<a href="#">이용약관</a>
 			</span> <span> <a href="#">개인정보약관</a></span>
 		</div>
@@ -156,14 +308,6 @@
 			Copyright &copy; 2017 <strong>㈜ NSS</strong> All Rights Reserved.
 		</p>
 	</div>
-
-
-
-
-
-
-
-
 
 </body>
 </html>

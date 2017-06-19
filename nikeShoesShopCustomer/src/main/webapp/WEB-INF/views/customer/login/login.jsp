@@ -18,7 +18,7 @@
 
 			$("#loginForm").attr({
 				"method" : "POST",
-				"action" : "/login/loginForm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
+				"action" : "/customer/login/loginForm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
 			});
 
 			$("#loginForm").submit();
@@ -280,10 +280,10 @@ session.invalidate();
 	<table>
 		<tbody>
 			<tr>
-				<td><a href="/login/idSearch.do">아이디 찾기</a></td>
+				<td><a href="/customer/login/idSearch.do">아이디 찾기</a></td>
 				<!-- 여기서 주소는 jsp파일명.do로 적어준다. -->
-				<td><a href="/login/pwSearch.do">비밀번호 찾기</a></td>
-				<td><a href="#">관리자페이지</a></td>
+				<td><a href="/customer/login/pwSearch.do">비밀번호 찾기</a></td>
+				<td><a href="/manager/login/loginForm.do">관리자페이지</a></td>
 			</tr>
 
 			<tr>

@@ -1,26 +1,28 @@
+<%@page import="org.springframework.web.context.request.SessionScope"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ID찾기</title>
-<!-- ID찾기 내용 입력하는 창 -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>NSS 나이키 슈즈 샵</title>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-	/* [확인] 버튼 눌렀을때 처리 이벤트 */
+	/* [로그인] 버튼 눌렀을때 처리 이벤트 */
 	$(document).ready(function() {
-	
-	$("#IDInsert").click(function() {//ID찾기에서 확인 버튼을 눌렀을 때
 
-		$("#idSearchForm").attr({
-			"method" : "POST",
-			"action" : "/login/idConfirm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
-		});
+		$("#loginInsert").click(function() {
 
-	$("#idSearchForm").submit();
+			$("#loginForm").attr({
+				"method" : "POST",
+				"action" : "/customer/login/loginForm.do" //여기서 action하는건 무조건 컨트롤러로 넘어감
+			});
+
+			$("#loginForm").submit();
 		});
+		
 	});
 </script>
 
@@ -198,81 +200,147 @@ a {
 
 	<div id="wrap">
 		<header class="main_header" id="main_header">
-			<div class="main_logo">
+		<div class="main_logo">
+			<h1>
+				<a href="#"><img src="../resources/images/logo.jpg" alt="NSS"></a>
+			</h1>
+			<!-- <h2 class="main_title">나이키 슈즈 샵</h2> -->
+		</div>
+
+		<div class="top_right_nav">
+
+			<a class="account_register" href="/customer/login/login.do"> <c:choose>
+					<c:when test="${not empty sessionScope.loginSession}">
+			${sessionScope.loginSession.customerName}님
+								안녕하세요<a id="logout" href="/customer/login/login.do">로그아웃</a></c:when>
+
+					<c:otherwise>로그인/회원가입</c:otherwise>
+				</c:choose>
+			</a>
+			
+			<%-- <%=session.getAttribute("loginSession") %> --%>
+			
+			<a class="customercenter" href="#">고객센터</a> <a class="cart" href="#"><img
+				src="cart.jpg" width="25px" height="20px" alt="장바구니"></a>
+		</div>
+
+		<div class="nav_search">
+			<div class="search_form_container">
+				<form class="search_form" action="#" method="get" name="search"
+					id="search">
+					<p>
+						<input type="text" name="keyword" id="keyword" title="검색어입력"
+							placeholder="상품을 입력하세요" /> <input type="image"
+							src="search_icon.jpg" width="20px" ; height="20px" ; alt="검색" />
+					</p>
+				</form>
+			</div>
+		</div>
+		<!-- 상단 메뉴 시작 -->
+		<div class="menubar">
+			<ul>
 				<h1>
-					<a href="#"><img src="logo.jpg" alt="NSS"></a>
+					<li><a href="#">MEN</a>
+						<ul>
+							<li><a href="#">런닝</a></li>
+							<li><a href="#">라이프 스타일</a></li>
+							<li><a href="#">농구</a></li>
+							<li><a href="#">축구</a></li>
+						</ul></li>
 				</h1>
-				<!-- <h2 class="main_title">나이키 슈즈 샵</h2> -->
-			</div>
-
-			<div class="top_right_nav">
-
-				<a class="account_register" href="#">로그인/회원가입</a> <a
-					class="customercenter" href="#">고객센터</a> <a class="cart" href="#"><img
-					src="cart.jpg" width="25px" ; height="20px" ; alt="장바구니"></a>
-			</div>
-
-			<div class="nav_search">
-				<div class="search_form_container">
-					<form class="search_form" action="#" method="get" name="search"
-						id="search">
-						<p>
-							<input type="text" name="keyword" id="keyword" title="검색어입력"
-								placeholder="상품을 입력하세요" /> <input type="image"
-								src="search_icon.jpg" width="20px" ; height="20px" ; alt="검색" />
-						</p>
-					</form>
-				</div>
-			</div>
-			<!-- 상단 메뉴 시작 -->
-			<div class="menubar">
-				<ul>
-					<h1>
-						<li><a href="#">MEN</a>
-							<ul>
-								<li><a href="#">런닝</a></li>
-								<li><a href="#">라이프 스타일</a></li>
-								<li><a href="#">농구</a></li>
-								<li><a href="#">축구</a></li>
-							</ul></li>
-					</h1>
-					<h1>
-						<li><a href="#" id="current">WOMEN</a>
-							<ul>
-								<li><a href="#">런닝</a></li>
-								<li><a href="#">라이프 스타일</a></li>
-							</ul></li>
-					</h1>
-				</ul>
-			</div>
-			<!-- 상단메뉴 끝 -->
-		</header>
+				<h1>
+					<li><a href="#" id="current">WOMEN</a>
+						<ul>
+							<li><a href="#">런닝</a></li>
+							<li><a href="#">라이프 스타일</a></li>
+						</ul></li>
+				</h1>
+			</ul>
+		</div>
+		<!-- 상단메뉴 끝 --> </header>
 	</div>
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
-	<form id="idSearchForm">
-		<p>아이디찾기</p>
-		<table>
-			<tbody>
-				<tr>
-					<td>회원 정보에 등록한 이름, E-mail과 <br>입력한 이름, E-mail이 같아야 확인할 수 있습니다.</td>
-				</tr>
-				<tr>
-					<td><input type="text" id="IDCustomerName"
-						name="IDCustomerName" placeholder="이름을 입력해 주세요" required="required"></td>
-				</tr>
+	<%-- <% String id=""; 
+	try{
+		//id 세션 속성의 값을 얻어내서 id 변수에 저장
+		//인증된 사용자의 경우 id 세션 속성의 값 null 또는 공백이 아님
+		id = (String)session.getAttribute("customerID");
+	%>
 
-				<tr>
-					<td><input type="Email" id="IDCustomerEMail"
-						name="IDCustomerEMail" placeholder="이메일을 입력해 주세요" required="required"></td>
-				</tr>
+	<%if(id == null ||id.equals("")){//인증되지 않은 사용자 영역 %>
+	<div id="status">
+		<h2>로그인</h2>
+		<form id="loginForm">
+			<table>
+				<tbody>
+					<tr>
+						<td><input type="text" id="LoginCustomerID"
+							name="LoginCustomerID" placeholder="아이디"></td>
+					</tr>
 
-				<tr>
-					<td><input type="button" value="확인" name="IDInsert"
-						id="IDInsert"></td>
-				</tr>
-			</tbody>
-		</table>
-	</form>
+					<tr>
+						<td><input type="password" id="LoginCustomerPW"
+							name="LoginCustomerPW" placeholder="비밀번호"></td>
+					</tr>
+
+					<tr>
+						<td><input type="button" value="로그인" name="loginInsert"
+							id="loginInsert"></td>
+					</tr>
+
+					<tr>
+						<td><a href="#">아이디 찾기</a></td>
+						<td><a href="#">비밀번호 찾기</a></td>
+						<td><a href="#">관리자페이지</a></td>
+					</tr>
+
+					<tr>
+						<td><a href="/customer/registerForm.do"><input
+								type="button" value="회원가입">회원가입</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<%}else{//인증된 사용자 영역 %>
+	<div id="status">
+		<h2>로그인</h2>
+		<form id="loginForm">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+						<b></b>님 반갑습니다.
+						</td>
+					</tr>
+
+					<tr>
+						<td><input type="button" value="로그아웃" name="loginOut"
+							id="loginOut"></td>
+					</tr>
+
+					<tr>
+						<td><a href="#">아이디 찾기</a></td>
+						<td><a href="#">비밀번호 찾기</a></td>
+						<td><a href="#">회원정보변경</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<%}}catch(Exception e){e.printStackTrace();}%> --%>
+
+
+
+
+
+
+
+
+
+
+
+
 	<br>
 	<br>
 	<br>
@@ -299,7 +367,6 @@ a {
 			Copyright &copy; 2017 <strong>㈜ NSS</strong> All Rights Reserved.
 		</p>
 	</div>
-
 
 </body>
 </html>

@@ -18,25 +18,25 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDao ldao;
 	
 	@Override
-	public CustomerVO loginInsert(CustomerVO cvo) {//로그인
+	public CustomerVO loginInsert(CustomerVO cvo) {//濡쒓렇�씤
 		// TODO Auto-generated method stub
 		return ldao.loginInsert(cvo);
 	}
 
 	@Override
-	public CustomerVO idInsert(CustomerVO cvo) {//아이디 찾기
+	public CustomerVO idInsert(CustomerVO cvo) {//�븘�씠�뵒 李얘린
 		// TODO Auto-generated method stub
 		return ldao.idInsert(cvo);
 	}
 
 	@Override
-	public CustomerVO pwInsert(CustomerVO cvo) {//비밀번호 찾기(조회)
+	public CustomerVO pwInsert(CustomerVO cvo) {//鍮꾨�踰덊샇 李얘린(議고쉶)
 		// TODO Auto-generated method stub
 		return ldao.pwInsert(cvo);
 	}
 
 	@Override
-	public CustomerVO pwUpdate(CustomerVO cvo) {//비밀번호 재설정
+	public int pwUpdate(CustomerVO cvo) {//鍮꾨�踰덊샇 �옱�꽕�젙
 		// TODO Auto-generated method stub
 		return ldao.pwUpdate(cvo);
 	}
