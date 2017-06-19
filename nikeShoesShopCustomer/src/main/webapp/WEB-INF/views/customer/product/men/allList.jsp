@@ -9,11 +9,19 @@
 <title>NSS 나이키 슈즈 샵</title>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#priceSort").on("change", function() {
-			$(this).val("heighPrice").prop("selected", false);
-			alert("높은가격선택");
+		
+		$("#priceSort1").on("change", function() {
+			alert($("#priceSort1").val());
+			$("#priceSort").val($("#priceSort1").val());
+			$("#sort_form").attr({
+				"method" : "get",
+				"action" : "/customer/product/men/allList.do"
+			});
+			$("#sort_form").submit();
 		});
 
 		//상세페이지 이동
@@ -47,11 +55,15 @@
 </head>
 <body>
 	<h5>전체</h5>
+	 ${priceSort}
 	<div id="sort">
-		<select id="priceSort" name="priceSort">
-			<option value="all">전체</option>
-			<option value="heighPrice">높은가격순</option>
-			<option value="rowPrice">낮은가격순</option>
+	<form name="sort_form" id="sort_form">
+		<input type="hidden" name="priceSort" id="priceSort" value="" />
+	</form>
+		<select id="priceSort1" name="priceSort1">
+			<option value="all" <%-- ${priceSort.eq("all")? "selected":""} --%>>전체</option>
+			<option value="heighPrice" <%-- ${priceSort.eq("heighPrice")? "selected":""} --%>>높은가격순</option>
+			<option value="lowPrice" <%-- ${priceSort.eq("lowPrice")? "selected":""} --%>>낮은가격순</option>
 		</select>
 
 	</div>

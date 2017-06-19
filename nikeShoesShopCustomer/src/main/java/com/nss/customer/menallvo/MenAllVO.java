@@ -6,9 +6,19 @@ public class MenAllVO {
 	private String productName; // 상품이름
 	private String productCategory; // 상품분류
 	private String productCode; // 상품코드
-	private String productPrice;// 상품가겨
+	private String productPrice;// 상품가격
 	private String productColor;// 상품색상
 	private String productInfo;// 상품정보
+	
+	private String priceSort = ""; //가격 정렬
+
+	public String getPriceSort() {
+		return priceSort;
+	}
+
+	public void setPriceSort(String priceSort) {
+		this.priceSort = priceSort;
+	}
 
 	public int getProductNo() {
 		return productNo;

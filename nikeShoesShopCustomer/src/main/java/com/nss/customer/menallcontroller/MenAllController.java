@@ -26,9 +26,21 @@ public class MenAllController {
 	@RequestMapping(value="/allList", method = RequestMethod.GET)
 	public String allList(@ModelAttribute MenAllVO mavo, Model model){
 		logger.info("남성 전체 상품 리스트 호출 성공");
+		if(mavo.getPriceSort().equals("") || mavo.getPriceSort().equals("all")){
+			mavo.setPriceSort("");
+		}else{
+			mavo.setPriceSort(mavo.getPriceSort());
+		}
+		logger.info("PriceSort : " + mavo.getPriceSort());
+		
+		
 		List<MenAllVO> allList = menallService.allList(mavo);
 		model.addAttribute("allList",allList);
+		model.addAttribute("priceSort",mavo.getPriceSort());
+		
 		logger.info(allList);
+		
+		
 		
 		return "/customer/product/men/allList";
 	}
