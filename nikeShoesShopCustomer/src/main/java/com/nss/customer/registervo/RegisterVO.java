@@ -1,6 +1,6 @@
-package com.nss.customer.customervo;
+package com.nss.customer.registervo;
 
-public class CustomerVO {
+public class RegisterVO {
 
 	// 필드선언
 	private int customerNO; // 회원 번호
