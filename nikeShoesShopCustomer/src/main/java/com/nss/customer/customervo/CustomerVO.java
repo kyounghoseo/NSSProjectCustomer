@@ -1,6 +1,6 @@
-package com.nss.customer.registervo;
+package com.nss.customer.customervo;
 
-public class RegisterVO {
+public class CustomerVO {
 
 	// 필드선언
 	private int customerNO; // 회원 번호
@@ -24,120 +24,167 @@ public class RegisterVO {
 	private String IDCustomerName; // 아이디 찾기때 사용자가 적은 이름
 	private String IDCustomerEMail; // 아이디 찾기때 사용자가 적은 이름
 	
+	private String PWCustomerPW; //비밀번호 찾기 때 사용자가 적은 비밀번호
+
 	// 접근자get, 설정자set
 	public int getCustomerNO() {
 		return customerNO;
 	}
+
 	public void setCustomerNO(int customerNO) {
 		this.customerNO = customerNO;
 	}
+
 	public String getCustomerID() {
 		return customerID;
 	}
+
 	public void setCustomerID(String customerID) {
 		this.customerID = customerID;
 	}
+
 	public String getCustomerPW() {
 		return customerPW;
 	}
+
 	public void setCustomerPW(String customerPW) {
 		this.customerPW = customerPW;
 	}
+
 	public String getCustomerName() {
 		return customerName;
 	}
+
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+
 	public String getCustomerCellPhone() {
 		return customerCellPhone;
 	}
+
 	public void setCustomerCellPhone(String customerCellPhone) {
 		this.customerCellPhone = customerCellPhone;
 	}
+
 	public String getCustomerCellPhone1() {
 		return customerCellPhone1;
 	}
+
 	public void setCustomerCellPhone1(String customerCellPhone1) {
 		this.customerCellPhone1 = customerCellPhone1;
 	}
+
 	public String getCustomerCellPhone2() {
 		return customerCellPhone2;
 	}
+
 	public void setCustomerCellPhone2(String customerCellPhone2) {
 		this.customerCellPhone2 = customerCellPhone2;
 	}
+
 	public String getCustomerEMail() {
 		return customerEMail;
 	}
+
 	public void setCustomerEMail(String customerEMail) {
 		this.customerEMail = customerEMail;
 	}
+
 	public String getCustomerBirth() {
 		return customerBirth;
 	}
+
 	public void setCustomerBirth(String customerBirth) {
 		this.customerBirth = customerBirth;
 	}
+
 	public String getCustomerBirth1() {
 		return customerBirth1;
 	}
+
 	public void setCustomerBirth1(String customerBirth1) {
 		this.customerBirth1 = customerBirth1;
 	}
+
 	public String getCustomerBirth2() {
 		return customerBirth2;
 	}
+
 	public void setCustomerBirth2(String customerBirth2) {
 		this.customerBirth2 = customerBirth2;
 	}
+
 	public String getCustomerGender() {
 		return customerGender;
 	}
+
 	public void setCustomerGender(String customerGender) {
 		this.customerGender = customerGender;
 	}
+
 	public String getCustomerAccept() {
 		return customerAccept;
 	}
+
 	public void setCustomerAccept(String customerAccept) {
 		this.customerAccept = customerAccept;
 	}
+
 	public String getCustomerDate() {
 		return customerDate;
 	}
+
 	public void setCustomerDate(String customerDate) {
 		this.customerDate = customerDate;
 	}
+
 	public String getCustomerCheck() {
 		return customerCheck;
 	}
+
 	public void setCustomerCheck(String customerCheck) {
 		this.customerCheck = customerCheck;
 	}
+
 	public String getLoginCustomerID() {
 		return LoginCustomerID;
 	}
+
 	public void setLoginCustomerID(String loginCustomerID) {
 		LoginCustomerID = loginCustomerID;
 	}
+
 	public String getLoginCustomerPW() {
 		return LoginCustomerPW;
 	}
+
 	public void setLoginCustomerPW(String loginCustomerPW) {
 		LoginCustomerPW = loginCustomerPW;
 	}
+
 	public String getIDCustomerName() {
 		return IDCustomerName;
 	}
+
 	public void setIDCustomerName(String iDCustomerName) {
 		IDCustomerName = iDCustomerName;
 	}
+
 	public String getIDCustomerEMail() {
 		return IDCustomerEMail;
 	}
+
 	public void setIDCustomerEMail(String iDCustomerEMail) {
 		IDCustomerEMail = iDCustomerEMail;
 	}
 
+	public String getPWCustomerPW() {
+		return PWCustomerPW;
+	}
+
+	public void setPWCustomerPW(String pWCustomerPW) {
+		PWCustomerPW = pWCustomerPW;
+	}
+	
 }

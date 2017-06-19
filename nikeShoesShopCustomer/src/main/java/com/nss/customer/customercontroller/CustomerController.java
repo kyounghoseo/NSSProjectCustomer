@@ -1,4 +1,4 @@
-package com.nss.customer.registercontroller;
+package com.nss.customer.customercontroller;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.nss.customer.registerservice.RegisterService;
-import com.nss.customer.registervo.RegisterVO;
+import com.nss.customer.customerservice.CustomerService;
+import com.nss.customer.customervo.CustomerVO;
 
 @Controller
 @RequestMapping(value="/customer")
-public class RegisterController {
+public class CustomerController {
 
 	@Autowired
-	private RegisterService customerService;
+	private CustomerService customerService;
 	
 	
 	@RequestMapping(value="/updateForm") //수정폼으로 들어가기 위한 것
@@ -26,14 +26,14 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value="/customerUpdate", method=RequestMethod.POST)//내용수정
-	public String customerupdate(@ModelAttribute RegisterVO cvo, HttpSession hsession){
+	public String customerupdate(@ModelAttribute CustomerVO cvo, HttpSession hsession){
 		customerService.customerUpdate(cvo);
 		return "customer/updateForm";
 		
 	}
 	
 	@RequestMapping(value="/customerInsert", method=RequestMethod.POST) //내용등록
-	public String customerInsert(@ModelAttribute RegisterVO cvo, HttpSession hsession){
+	public String customerInsert(@ModelAttribute CustomerVO cvo, HttpSession hsession){
 		/*System.out.println("아무말대잔치");*/
 		
 		cvo.setCustomerBirth(cvo.getCustomerBirth()+cvo.getCustomerBirth1()+cvo.getCustomerBirth2());
@@ -49,7 +49,7 @@ public class RegisterController {
 		
 	}
 	
-	@RequestMapping(value="/insertForm") //등록폼으로 들어가기 위한 것
+	@RequestMapping(value="/registerForm") //등록폼으로 들어가기 위한 것
 	public String Insert(HttpSession hsession){
 		/*System.out.println("아무말대잔치");*/
 		return "customer/registerForm";

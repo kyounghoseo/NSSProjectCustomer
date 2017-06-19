@@ -5,8 +5,8 @@
 <mapper namespace="com.nss.customer.customerdao.CustomerDao">
 
 	<!-- 로그인(조회) -->
-	<select id="logInsert" parameterType="com.nss.customer.registervo.RegisterVO"
-		resultType="com.nss.customer.registervo.RegisterVO">
+	<select id="logInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
 		SELECT
 		customerID,
 		customerName
@@ -17,8 +17,8 @@
 	</select>
 
 	<!-- ID찾기(조회) -->
-	<select id="idInsert" parameterType="com.nss.customer.registervo.RegisterVO"
-		resultType="com.nss.customer.registervo.RegisterVO">
+	<select id="idInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
 		SELECT
 		customerID
 		from customer_tb
@@ -26,9 +26,10 @@
 		=#{IDCustomerName} and customerEMail =#{IDCustomerEMail}
 	</select>
 
-	<!-- 비밀번호 찾기(조회) -->
-	<select id="pwInsert" parameterType="com.nss.customer.registervo.RegisterVO"
-		resultType="com.nss.customer.registervo.RegisterVO">
+	<!-- 비밀번호 찾기(조회) - pwSearch -->
+	<select id="pwInsert" parameterType="com.nss.customer.customervo.CustomerVO"
+		resultType="com.nss.customer.customervo.CustomerVO">
+		 
 		SELECT
 		customerPW
 		from customer_tb
@@ -38,8 +39,8 @@
 		=#{IDCustomerEMail}
 	</select>
 
-<!-- 비밀번호 재설정(수정) - pwConfirm -->
-	<update id="pwUpdate" parameterType="com.nss.customer.registervo.RegisterVO" >
+	<!-- 비밀번호 재설정(수정) - pwConfirm -->
+	<update id="pwUpdate" parameterType="com.nss.customer.customervo.CustomerVO" >
 		UPDATE customer_tb
 		SET
 		customerPW =#{PWCustomerPW}
@@ -55,11 +56,13 @@
 
 
 
+
+
 	<!-- <select id="getAll" resultMap="YourResultSet"> SELECT * FROM tablename1 
 		</select> -->
 
 	<!-- 회원가입 등록 -->
-	<insert id="csInsert" parameterType="com.nss.customer.registervo.RegisterVO">
+	<insert id="csInsert" parameterType="com.nss.customer.customervo.CustomerVO">
 		<selectKey keyProperty="customerNO" resultType="int" order="BEFORE">
 			select customer_no_seq.nextval from dual
 		</selectKey>
@@ -77,7 +80,7 @@
 		//회원 가입날짜 private String customerCheck; //회원여부 -->
 
 	<!-- 회원가입수정 -->
-	<update id="csUpdate" parameterType="com.nss.customer.registervo.RegisterVO">
+	<update id="csUpdate" parameterType="com.nss.customer.customervo.CustomerVO">
 		UPDATE customer_tb
 		SET
 		customerName=#{customerName},

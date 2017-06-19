@@ -24,7 +24,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public String loginForm(@ModelAttribute CustomerVO cvo, HttpSession Session) {// 濡쒓렇�씤�궡�슜
+	public String loginForm(@ModelAttribute RegisterVO cvo, HttpSession Session) {// 濡쒓렇�씤�궡�슜
 		System.out.println("濡쒓렇�씤 泥댄겕 而⑦듃濡ㅻ윭" + cvo.getLoginCustomerID());
 		System.out.println(cvo.getLoginCustomerPW());
 		String url = "";
