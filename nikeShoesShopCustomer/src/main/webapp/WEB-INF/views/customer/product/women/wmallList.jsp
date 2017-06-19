@@ -55,7 +55,7 @@
 			<article>
 				<a href="http://localhost:8080/customer/product/women/wmallList.do" class="active">전체</a> 
 				<a href="http://localhost:8080/customer/product/women/wmrunningList.do">런닝화</a> 
-				<a href="http://localhost:8080/customer/product/women/lifestyleList.do">라이프스타일</a> 
+				<a href="http://localhost:8080/customer/product/women/wmlifestyleList.do">라이프스타일</a> 
 	
 			</article>
 		</section>

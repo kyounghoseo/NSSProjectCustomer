@@ -40,7 +40,7 @@
 </style>
 </head>
 <body>
-	<h5>여성 런닝화</h5>
+	<h5>여성 라이프 스타일</h5>
 	<div id="sort">
 		<select id="priceSort" name="priceSort">
 			<option value="all">전체</option>
@@ -65,11 +65,11 @@
 		<article class="men_list">
 		<table>
 			<c:choose>
-				<c:when test="${not empty wmrunningList}">
-					<c:forEach var="wmrunning" items="${wmrunningList }" varStatus="status">
+				<c:when test="${not empty wmlifestyleList}">
+					<c:forEach var="wmlifestyle" items="${wmlifestyleList }" varStatus="status">
 						<tr>
-							<td>${wmrunning.productName}</td>
-							<td>${wmrunning.productPrice}</td>
+							<td>${wmlifestyle.productName}</td>
+							<td>${wmlifestyle.productPrice}</td>
 						</tr>
 					</c:forEach>
 				</c:when>
