@@ -39,7 +39,7 @@ public class MenRunningController {
 		model.addAttribute("data",mrvo);
 		logger.info(runningList);
 		
-		return "product/men/runningList";
+		return "/customer/product/men/runningList";
 	}
 	
 	

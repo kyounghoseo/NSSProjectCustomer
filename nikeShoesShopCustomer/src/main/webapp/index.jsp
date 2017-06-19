@@ -240,11 +240,11 @@ a {
 		<div class="menubar">
 			<ul>
 				<h1>
-					<li><a href="#">MEN</a>
+					<li><a href="http://localhost:8080/customer/product/men/allList.do">MEN</a>
 						<ul>
-							<li><a href="#">런닝</a></li>
-							<li><a href="#">라이프 스타일</a></li>
-							<li><a href="#">농구</a></li>
+							<li><a href="http://localhost:8080/customer/product/men/runningList.do">런닝</a></li>
+							<li><a href="http://localhost:8080/customer/product/men/lifestyleList.do">라이프 스타일</a></li>
+							<li><a href="http://localhost:8080/customer/product/men/basketballList.do">농구</a></li>
 							<li><a href="#">축구</a></li>
 						</ul></li>
 				</h1>

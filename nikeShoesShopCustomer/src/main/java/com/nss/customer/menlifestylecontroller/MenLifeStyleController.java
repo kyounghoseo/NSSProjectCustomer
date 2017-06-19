@@ -30,7 +30,7 @@ public class MenLifeStyleController {
 		model.addAttribute("lifestyleList",lifestyleList);
 		logger.info(lifestyleList);
 		
-		return "product/men/lifestyleList";
+		return "/customer/product/men/lifestyleList";
 	}
 	
 

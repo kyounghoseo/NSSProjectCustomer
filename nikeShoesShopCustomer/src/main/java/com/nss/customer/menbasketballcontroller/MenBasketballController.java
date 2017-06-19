@@ -29,7 +29,7 @@ public class MenBasketballController {
 		model.addAttribute("basketballList",basketballList);
 		logger.info(basketballList);
 		
-		return "product/men/basketballList";
+		return "/customer/product/men/basketballList";
 	}
 
 }

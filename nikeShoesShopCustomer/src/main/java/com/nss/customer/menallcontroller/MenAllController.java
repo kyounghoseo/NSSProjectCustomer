@@ -30,7 +30,7 @@ public class MenAllController {
 		model.addAttribute("allList",allList);
 		logger.info(allList);
 		
-		return "product/men/allList";
+		return "/customer/product/men/allList";
 	}
 
 }
