@@ -23,10 +23,10 @@
 			});
 			$("#sort_form").submit();
 		});
-
+	
 		//상세페이지 이동
 		function goDetail(productNo) {
-			location.href = "/product/men/allDetail.do?productNo=" + productNo;
+			location.href = "/customer/product/detail/productDetail.do?productNo=" + productNo;
 		}
 
 	});
