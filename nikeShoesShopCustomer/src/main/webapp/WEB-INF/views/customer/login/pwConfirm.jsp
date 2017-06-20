@@ -37,7 +37,175 @@
 		});
 	});
 </script>
+<style type="text/css">
+/*메인 상단로고*/
+.main_logo {
+	display: inline-block;
+	width: 25%;
+	vertical-align: middle;
+}
 
+/*우측 상단메뉴 로그인_회원가입_고객센터_장바구니*/
+.top_right_nav {
+	float: right; /*우측 상단으로 흐르게*/
+}
+
+/*메인메뉴*/
+.menubar {
+	border: none;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.menubar ul {
+	background: rgb(109, 109, 109);
+	height: 50px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menubar li {
+	float: left;
+	padding: 0px;
+}
+
+.menubar li a {
+	background: rgb(109, 109, 109);
+	color: white;
+	display: block;
+	font-weight: normal;
+	line-height: 50px;
+	margin: 0px;
+	padding: 0px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a {
+	background: rgb(71, 71, 71);
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.menubar li ul {
+	background: rgb(109, 109, 109);
+	display: none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position: absolute;
+	width: 200px;
+	z-index: 200;
+	/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul {
+	display: block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+	background: rgb(109, 109, 109);
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 0px;
+	width: 200px;
+}
+
+.menubar li:hover li a {
+	background: none;
+}
+
+.menubar li ul a {
+	display: block;
+	height: 50px;
+	font-size: 12px;
+	font-style: normal;
+	margin: 0px;
+	padding: 0px 10px 0px 15px;
+	text-align: left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a {
+	background: rgb(71, 71, 71);
+	border: 0px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.menubar p {
+	clear: left;
+}
+
+/*메인메뉴 끝*/
+
+/*상단 검색창*/
+.nav_search {
+	position: relative;
+	width: 224px;
+	float: right;
+	padding: -40px 10px;
+	margin: -16px;
+	width: 224px;
+}
+
+/*상단 검색 끝*/
+* /
+	/*메인배너 css */            
+.main_banner {
+	width: 100%;
+	height: 20%;
+	position: absolute;
+	visibility: hidden;
+}
+/*푸터 css*/
+.footer {
+	width: 1250px;
+	margin: 0 auto;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+a {
+	text-decoration: none
+} /* a링크 밑줄 제거 */
+.footer_top {
+	text-decoration: none;
+	width: 100%;
+	height: 35px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border-bottom: 2px solid #000;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.address span {
+	padding: 0 25px 0 0;
+	padding-top: 0px;
+	padding-right: 25px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 22px;
+	padding-bottom: 0px;
+	padding-left: 0;
+}
+
+.copyright {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 
@@ -95,36 +263,28 @@
 		</header>
 	</div>
 	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
+	<!-- 로그인/회원가입/아이디&비밀번호찾기/상품목록/상세페이지 삽입 -->
 	<form id="pwConfirmForm">
-		<p>비밀번호 찾기</p>
+		<p>비밀번호 재설정</p>
 		<table>
 			<tbody>
 				<tr>
-					<td><label for="IDCustomerName">이름</label></td>
-					<td><input type="text" id="IDCustomerName"
-						name="IDCustomerName" placeholder="이름을 입력해 주세요"
+					<td><label for="IDCustomerName">새로운 비밀번호</label></td>
+					<td><input type="password" id="IDCustomerName"
+						name="IDCustomerName" placeholder="새로운 비밀번호를 입력해 주세요"
 						required="required"></td>
 				</tr>
 
 				<tr>
-					<td><label for="LoginCustomerID">아이디</label></td>
-					<td><input type="text" id="LoginCustomerID"
-						name="LoginCustomerID" placeholder="아이디를 입력해 주세요"
+					<td><label for="LoginCustomerID">비밀번호 재확인</label></td>
+					<td><input type="password" id="LoginCustomerID"
+						name="LoginCustomerID" placeholder="위와 똑같이 입력해 주세요"
 						required="required"></td>
 				</tr>
 
 				<tr>
-					<td><label for="IDCustomerEMail">이메일</label></td>
-					<td><input type="Email" id="IDCustomerEMail"
-						name="IDCustomerEMail" placeholder="이메일을 입력해 주세요"
-						required="required"></td>
-				</tr>
-
-				<tr>
-					<td><input type="button" value="변경완료" name="PWUpdate"
-						id="PWUpdate"></td>
-					<td><input type="button" value="취소" name="PWReset"
-						id="PWReset"></td>
+					<td><input type="button" id="PWUpdate" name="PWUpdate" value="변경완료"></td>
+					<td><input type="button" id="PWReset" name="PWReset" value="취소"></td>
 				</tr>
 			</tbody>
 		</table>

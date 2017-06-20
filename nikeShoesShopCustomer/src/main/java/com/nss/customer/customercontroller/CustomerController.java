@@ -49,7 +49,7 @@ public class CustomerController {
 		
 	}
 	
-	@RequestMapping(value="/insertForm") //등록폼으로 들어가기 위한 것
+	@RequestMapping(value="/registerForm") //등록폼으로 들어가기 위한 것
 	public String Insert(HttpSession hsession){
 		/*System.out.println("아무말대잔치");*/
 		return "customer/registerForm";

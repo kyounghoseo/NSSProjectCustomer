@@ -15,7 +15,6 @@ public class MenLifeStyleDaoImpl implements MenLifeStyleDao {
 	@Inject
 	private SqlSession sqlSession;
 
-	//남성 라이프스타일 리스트
 	@Override
 	public List<MenLifeStyleVO> lifestyleList(MenLifeStyleVO mlsvo) {
 		return sqlSession.selectList("lifestyleList",mlsvo);

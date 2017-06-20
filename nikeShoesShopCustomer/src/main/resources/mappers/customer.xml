@@ -26,9 +26,10 @@
 		=#{IDCustomerName} and customerEMail =#{IDCustomerEMail}
 	</select>
 
-	<!-- 비밀번호 찾기(조회) -->
+	<!-- 비밀번호 찾기(조회) - pwSearch -->
 	<select id="pwInsert" parameterType="com.nss.customer.customervo.CustomerVO"
 		resultType="com.nss.customer.customervo.CustomerVO">
+		 
 		SELECT
 		customerPW
 		from customer_tb
@@ -38,7 +39,7 @@
 		=#{IDCustomerEMail}
 	</select>
 
-<!-- 비밀번호 재설정(수정) - pwConfirm -->
+	<!-- 비밀번호 재설정(수정) - pwConfirm -->
 	<update id="pwUpdate" parameterType="com.nss.customer.customervo.CustomerVO" >
 		UPDATE customer_tb
 		SET
@@ -46,6 +47,8 @@
 		WHERE
 		customerID =#{LoginCustomerID}
 	</update>
+
+
 
 
 

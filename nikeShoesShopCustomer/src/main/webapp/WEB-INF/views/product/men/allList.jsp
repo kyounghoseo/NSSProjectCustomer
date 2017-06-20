@@ -46,7 +46,7 @@
 </style>
 </head>
 <body>
-	<h5>남성 농구화</h5>
+	<h5>전체</h5>
 	<div id="sort">
 		<select id="priceSort" name="priceSort">
 			<option value="all">전체</option>
@@ -75,11 +75,11 @@
 			<article class="men_list">
 				<table>
 					<c:choose>
-						<c:when test="${not empty basketballList}">
-							<c:forEach var="basketball" items="${basketballList }" varStatus="status">
+						<c:when test="${not empty allList}">
+							<c:forEach var="all" items="${allList }" varStatus="status">
 								<tr>
-									<td><a href="javascript:goDetail(${basketball.productNo})">${basketball.productName}</a></td>
-									<td>${basketball.productPrice}</td>
+									<td><a href="javascript:goDetail(${all.productNo})">${all.productName}</a></td>
+									<td>${all.productPrice}</td>
 								</tr>
 							</c:forEach>
 						</c:when>

@@ -24,7 +24,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public String loginForm(@ModelAttribute CustomerVO cvo, HttpSession Session) {// 濡쒓렇�씤�궡�슜
+	public String loginForm(@ModelAttribute RegisterVO cvo, HttpSession Session) {// 濡쒓렇�씤�궡�슜
 		System.out.println("濡쒓렇�씤 泥댄겕 而⑦듃濡ㅻ윭" + cvo.getLoginCustomerID());
 		System.out.println(cvo.getLoginCustomerPW());
 		String url = "";
@@ -83,7 +83,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/pwConfirm", method = RequestMethod.POST)
 	public String pwConfirm(@ModelAttribute CustomerVO cvo, Model model) {// 鍮꾨�踰덊샇
-																			// �옱�꽕�젙
+		System.out.println("pwConfirmController");																	// �옱�꽕�젙
 		/* System.out.println(pwSearchForm); */
 		String url = "";
 
@@ -102,10 +102,10 @@ public class LoginController {
 			url = "/customer/login/pwConfirm";
 		} else {
 			
-			url = "/customer/login/pwSearch";
+			url = "/login/pwSearch.do";
 		}
 
-		return "redirect:"+url;
+		return url;
 
 	}
 

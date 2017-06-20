@@ -19,7 +19,6 @@ public class MenRunningServiceImpl implements MenRunningService {
 	@Autowired
 	private MenRunningDao menRunningDao;
 	
-	//남성 런닝화 리스트
 	@Override
 	public List<MenRunningVO> runningList(MenRunningVO mrvo) {
 			List<MenRunningVO> runList = null;

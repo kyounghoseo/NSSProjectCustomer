@@ -15,7 +15,6 @@ public class MenRunningDaoImpl implements MenRunningDao{
 	@Inject
 	private SqlSession sqlSession;
 	
-	//남성 런닝화 리스트
 	@Override
 	public List<MenRunningVO> runningList(MenRunningVO mrvo) {
 			return sqlSession.selectList("runningList", mrvo);
